@@ -1,0 +1,226 @@
+  {% load cms_tags staticfiles sekizai_tags menu_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static "logo.png" %}">
+
+    <title>{% block title %}DWD{% endblock title %}</title>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+
+    <!-- GRT Youtube Plugin CSS -->
+    <link rel="stylesheet" href="{% static "grt-responsive-menu.css" %}">
+
+    <!-- MyBlog custom styles -->
+    <link href="{% static "myblog.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "foundation.css" %}">
+    <link rel="stylesheet" href="{% static "theme.css" %}">
+    <link rel="stylesheet" href="{% static "style.css" %}">
+
+
+
+    {% render_block "css" %}
+
+  <style>
+
+    .content-container a, .content-container a:active, .content-container a:visited{color:;}
+    .content-container a:focus, .content-container a:hover{color:;}
+
+        #footer{background:#be2327;}
+
+    #main-content .moduletable, #main-content .modulearticle{background: border: solid 0.0625rem #0d4e86; border-radius:border-radius:3px;
+      margin-bottom:1rem; padding:0.625rem;}
+
+
+        #main-content .page-header h1{font-size:2.75rem;}
+    #main-content .modulearticle h2.item-title a{font-size:2.25rem;}
+    .moduletable h3.sidebar-header{font-size:1.6875rem;}
+
+  </style>
+
+
+
+
+  </head>
+
+
+<body onload="startTime()" id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+{% cms_toolbar %}
+
+  <header>
+      <div class="menu-container">
+        <div class="row no-margin">
+          <div class="col-sm-4 col-xs-6 no-padding">
+          </div>
+          <div class="col-sm-8 col-xs-6 no-padding">
+            <nav>
+  <button class="grt-mobile-button">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+  </button>
+  <ul class="grt-menu">
+    <li> {% show_menu 0 100 100 100  "menu.html" %}</li>
+  </ul>
+          </div>
+        </div>
+      </div>
+        &nbsp;
+    </header>
+    &nbsp; &nbsp; &nbsp;
+
+
+<!-- HEADER -->
+    <div id="masthead" style="background: #0082A0  center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+  <div id="logo" class="row">
+
+    <div class="large-6 medium-12 columns"><a href="#"><img src="{% static "LOGO-white.png" %}" alt="DWD logo" title="Dinalupihan Water District" style="text-align:left;"></a></div>
+
+      <div class="large-3 medium-6 columns">
+
+      <div id="pst-container" style="display:block; background:none; text-align:center; color:#ffffff; font-family:&#39;Roboto Condensed&#39;, sans-serif; font-size:0.8rem;">
+  <div>
+  <br>   <br>
+    <div>Philippine Standard Time</div>
+    <div>
+      <span id="pst-time">
+
+
+            <script>
+            var mydate=new Date()
+            var year=mydate.getYear()
+            if (year < 1000)
+            year+=1900
+            var day=mydate.getDay()
+            var month=mydate.getMonth()
+            var daym=mydate.getDate()
+            if (daym<10)
+            daym="0"+daym
+            var dayarray=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
+            var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
+            document.write("<font color='fafafa' face='Arial'>"+dayarray[day]+", "+montharray[month]+" "+daym+", "+year+"</font>")
+            </script>
+<p id="txt"></p>
+      </span>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="large-3 medium-9 columns">
+
+<div class="custom">
+  <div>&nbsp;</div>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<a href="https://dinalupihanwaterdistrict.pythonanywhere.com/en/about-us/transparency-seal/"><img src="{% static "transparencyseal1-484x484.png" %}" title="Transparency Seal" alt="transparencyseal1 484x484" width="62" height="62"></a>&nbsp; <a href="http://www.foi.gov.ph/"><img src="{% static "foi-logo-484x484.png" %}" title="Freedom of Information" alt="foi logo 484x484" width="72" height="72"></a></p></div>
+</div>
+
+  </div>
+</div>
+<!-- END OF HEADER -->
+
+<!-- MENU NAVBAR -->
+
+
+
+    <div class="container">
+    {% block content %}{% endblock content %}
+    </div>
+
+    <footer>
+      <div id="footer" name="agencyfooter" style="background:#be2327;">
+        <div class="row">
+      </div>
+    </div>
+    </footer>
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static "ie10-viewport-bug-workaround.js" %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!-- GRT Youtube Popup -->
+    <script src="{% static "grt-responsive-menu.js" %}"></script>
+    <script src="{% static "foundation.js" %}"></script>
+    <script src="{% static "theme.js" %}"></script>
+
+
+
+    <!-- footer -->
+    <script id="gwt-footer-jsdk" src="{% static "footer.js" %}"></script>
+      <div id="gwt-standard-footer" class="content-container">
+        <iframe src="{% static "footer-source.html" %}" id="footer-gwt-frame" width="100%" scrolling="no" style="border: 0px; min-height: 188px; margin-bottom: -3px; overflow: hidden; height: 190px;">
+        </iframe>
+      </div>
+
+     <!--  footer -->
+    <script type="text/javascript">
+        (function(d, s, id) {
+          var js, gjs = d.getElementById('gwt-standard-footer');
+
+          js = d.createElement(s); js.id = id;
+          js.src = "//gwhs.i.gov.ph/gwt-footer/footer.js";
+          gjs.parentNode.insertBefore(js, gjs);
+          }(document, 'script', 'gwt-footer-jsdk'));
+    </script>
+
+      <script type="text/javascript">
+          $(document).ready(
+            function(){
+              $("#button1").click(toggle);
+            }
+          );
+
+          function toggle() {
+            $("#text1").toggle();
+          }
+
+          toggle();
+
+      </script>
+
+<!--       facebook script -->
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+ <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML =
+            h + ":" + m + ":" + s +" PHT";
+            var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+            return i;
+        }
+        </script>
+
+
+    {% render_block "js" %}
+
+  </body>
+
+
+</html>
+

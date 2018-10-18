@@ -1,0 +1,36 @@
+{% load i18n cms_tags menu_tags cache %}
+
+
+<div class="dropdown">
+    {% for child in children %}
+
+
+        {% if child.is_leaf_node %}
+            <li><a href="{{ child.get_absolute_url }}">{{child.get_menu_title }}</a></li>
+        {% endif %}
+
+
+
+        {% if not child.is_leaf_node or child.ancestor %}
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                {{child.get_menu_title }}<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    {% if child.get_descendants %}
+                        {% for kid in child.get_descendants %}
+                            <ul>
+                                <a href="{{ kid.get_absolute_url }}">
+                                    {{kid.get_menu_title }}
+                                </a>
+                            </ul>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </li>
+        {% endif %}
+
+
+    {% endfor %} 
+
+
+</div>

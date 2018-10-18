@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load cms_tags sekizai_tags %}
+
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col-sm-8 blog-main">
+        {% block page-inner %}
+          {% placeholder "content" %}
+          <!-- first placeholder: content -->
+            {% endblock page-inner %}
+    </div>
+    
+    
+  <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="sidebar-module sidebar-module-inset">
+
+        <h5>Citizen's Charter</h5>
+        <p>{% static_placeholder "Citizen's Charter" %}</p>
+            
+        <h5>Transparency Seal</h5>
+        <p>{% static_placeholder "Transparency Seal" %}</p>
+
+        <h5>Freedom of Information</h5>
+        <p>{% static_placeholder "Freedom of Information" %}</p>
+    </div>
+    <div class="sidebar-module">
+        <h5>Find Us</h5>
+    {% static_placeholder "Google Map" %}
+    </div>
+    <div class="sidebar-module">
+        <h4>Latest Posts</h4>
+    {% static_placeholder "posts" %}
+    </div>
+
+
+  </div>
+    
+</div>
+{% endblock content %}
+        
+
+

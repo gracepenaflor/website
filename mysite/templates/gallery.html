@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load cms_tags sekizai_tags %}
+
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+<style type="text/css">
+ 
+
+ 
+</style>
+{% block content %}
+<div class="row">
+
+    <div class="col-sm-12 blog-main">
+        {% block page-inner %}
+
+          <p>{% placeholder "content" %}</p>
+
+
+            {% endblock page-inner %}
+
+    </div>
+
+    
+</div>
+{% endblock content %}
+
+        
+
+

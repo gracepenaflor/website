@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% load cms_tags  staticfiles sekizai_tags %}
+
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+
+<div class="row" >
+
+    <div class="col-sm-9" >
+
+        <div>
+            {% placeholder "Slider" %}
+        </div>
+
+        <div itemprop="articleBody">
+            <p></p>
+            <div class="moduletable">
+                <h3>NEWS RELEASES</h3>
+            </div>
+            <p>{% placeholder "featured articles" %}</p>
+
+        </div>
+
+
+
+
+
+
+        {% block page-inner %}
+
+          {% placeholder "content" %}
+          <!-- GALLERY -->
+           <div itemprop="articleBody">
+                <p></p>
+                <div class="moduletable">
+                    <h3>INIVITATION TO BID</h3>
+                    </div>
+                    <div class="modulearticle">
+                    <p>{% placeholder "Bids" %}</p>
+
+                          </div>
+
+            </div>
+           <div itemprop="articleBody">
+                <p></p>
+                <div class="moduletable">
+                    <h3>Gallery</h3>
+                    <p>{% placeholder "Gallery" %}</p>
+                </div>
+
+
+            </div>
+
+            <!-- NEWS FEED -->
+           <div itemprop="articleBody">
+                <p></p>
+                <div class="moduletable">
+                    <h3>RELATED LINKS</h3>
+                    <p>{% placeholder "Related Links" %}</p>
+                </div>
+
+
+            </div>
+            {% endblock page-inner %}
+    </div>
+
+    <div class="col-sm-3 blog-sidebar">
+        <div class="sidebar-module sidebar-module-inset">
+
+        <h6>DWD is now ISO Certified</h6>
+        <p>{% static_placeholder "ISO Certificate" %}</p>
+        <h6>Transparency Seal</h6>
+        <p>{% static_placeholder "Transparency Seal" %}</p>
+        <h6>Freedom of Information</h6>
+        <p>{% static_placeholder "Freedom of Information" %}</p>
+        <h6>Citizen's Charter</h6>
+        <p>{% static_placeholder "Citizen's Charter" %}</p>
+
+
+
+
+
+
+
+       
+
+
+    </div>
+
+    <div class="sidebar-module">
+        <h5>News Feed</h5>
+                     <div class="fb-page" data-href="https://www.facebook.com/dinalupihanwaterdistrict" data-tabs="timeline" data-width="600" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/dinalupihanwaterdistrict" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/dinalupihanwaterdistrict">Dinalupihan Water District</a></blockquote></div>
+    </div>
+    <div class="sidebar-module">
+            <h5>Find Us</h5>
+        {% static_placeholder "Google Map" %}
+        </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+
+
